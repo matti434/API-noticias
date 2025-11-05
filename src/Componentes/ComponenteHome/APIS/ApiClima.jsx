@@ -8,7 +8,7 @@ export const ApiClima = async() => {
      
      const fechtClima = async () => {
         try{
-            const data = await ClimaServicio(longitud,latitud);
+            const data = await ClimaServicio(latitud,longitud);
             setDataApi(data);
         }catch(error){
           console.error("Error al cargar los datos"); 
@@ -19,7 +19,7 @@ export const ApiClima = async() => {
 
      fechtClima();
 
-   }, [longitud,latitud]);
+   }, [latitud,longitud]);
 
     if (loading) return <div>Cargando...</div>;
     if (!dataApi) return <div>Error al cargar el clima</div>;
