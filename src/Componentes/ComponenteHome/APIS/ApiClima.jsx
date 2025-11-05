@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { ClimaServicio } from './ClimaServicio'
-export const ApiClima = async() => {
+
+
+export const ApiClima = ({latitud,longitud}) => {
    
    const [dataApi,setDataApi] = useState(null);
    const [loading,setLoading] = useState(true);
    useEffect (() => {
      
-     const fechtClima = async () => {
+     const fechtClima = () => {
         try{
-            const data = await ClimaServicio(latitud,longitud);
+            const data = ClimaServicio(latitud,longitud);
             setDataApi(data);
         }catch(error){
           console.error("Error al cargar los datos"); 
